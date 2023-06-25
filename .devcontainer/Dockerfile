@@ -50,10 +50,10 @@ RUN apt-get update \
         golang.org/x/tools/cmd/goimports \
         golang.org/x/lint/golint \
         github.com/alecthomas/gometalinter 2>&1 \
-        github.com/mgechev/revive \
         github.com/derekparker/delve/cmd/dlv 2>&1 \
     && go install honnef.co/go/tools/cmd/staticcheck@latest \
     && go install golang.org/x/tools/gopls@latest \
+    && go install github.com/mgechev/revive@latest \
     # Protocol Buffer Compiler
     && PROTOC_VERSION=21.9 \
     && if [ $(dpkg --print-architecture) = "amd64" ]; then PROTOC_ARCH="x86_64"; else PROTOC_ARCH="aarch_64" ; fi \
